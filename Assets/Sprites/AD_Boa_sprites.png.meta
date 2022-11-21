@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6acb715d536461749879fe2145735f5c
+guid: 742581683875c4d4f99d72c5e9bc4312
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,7 +117,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AD_TitleDance_0
+      name: AD_Boa_sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2004
+        width: 1002
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9996a4095128d0444bdf605899238bb7
+      internalID: -904463923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AD_Boa_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 2004
+        width: 1002
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63e5d8206668a44aa6cf20d4d6d17ea
+      internalID: -841116966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AD_Boa_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 2004
+        width: 1002
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d44ce2a24dac8d4ab4e1a9f5c9ca251
+      internalID: 1775178005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AD_Boa_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1002
+        width: 1002
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b88503c8c94de40a73b596155130f2
+      internalID: -53879479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AD_Boa_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 1002
+        width: 1002
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a146bf18fbff816498477122a29de497
+      internalID: -959454422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AD_Boa_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 1002
+        width: 1002
+        height: 1002
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5773aedcabfafa947acffc3af67da083
+      internalID: -1376659161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AD_Boa_sprites_6
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a7c2d592853cb740971421dd95272a0
-      internalID: 281242987
+      spriteID: d6923f2ff7f55ce408434e58409c333b
+      internalID: -784947358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AD_TitleDance_1
+      name: AD_Boa_sprites_7
       rect:
         serializedVersion: 2
         x: 1002
@@ -152,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6427f440466f8bc499c7b411d24154d8
-      internalID: -832108398
+      spriteID: 3c3f15d13b7954042ae2d6809cd2db87
+      internalID: -579885081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AD_TitleDance_2
+      name: AD_Boa_sprites_8
       rect:
         serializedVersion: 2
         x: 2004
@@ -173,8 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35dc02ccfbd1797499a35ad8245dcce1
-      internalID: -1183882497
+      spriteID: ef08a571dc9dd32438807689e974cf6b
+      internalID: -740814430
       vertices: []
       indices: 
       edges: []
@@ -190,9 +316,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AD_TitleDance_0: 281242987
-      AD_TitleDance_2: -1183882497
-      AD_TitleDance_1: -832108398
+      AD_Boa_sprites_7: -579885081
+      AD_Boa_sprites_1: -841116966
+      AD_Boa_sprites_6: -784947358
+      AD_Boa_sprites_0: -904463923
+      AD_Boa_sprites_3: -53879479
+      AD_Boa_sprites_4: -959454422
+      AD_Boa_sprites_5: -1376659161
+      AD_Boa_sprites_8: -740814430
+      AD_Boa_sprites_2: 1775178005
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
