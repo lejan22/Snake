@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 204035833679154788}
   m_Layer: 0
   m_Name: AD_Tube
-  m_TagString: Untagged
+  m_TagString: Tube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
