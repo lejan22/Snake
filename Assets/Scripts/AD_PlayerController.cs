@@ -5,10 +5,14 @@ using UnityEngine;
 public class AD_PlayerController : MonoBehaviour
 {
     private Vector2 _direction = Vector2.right;
+    private List<Transform> _segments;
+
+    public Transform segmentPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _segments = new List<Transform>();
+        _segments.Add(this.transform);
     }
 
     // Update is called once per frame
