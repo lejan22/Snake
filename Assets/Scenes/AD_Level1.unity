@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 782441223}
   m_Layer: 0
   m_Name: AD_Border
-  m_TagString: Untagged
+  m_TagString: Ouch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,13 +789,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1719996015, guid: 2ed9b3bdcbe7cb142b77c5455f47f1e3, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719996015, guid: 2ed9b3bdcbe7cb142b77c5455f47f1e3, type: 3}
       propertyPath: segmentPrefab
       value: 
       objectReference: {fileID: 122707825}
-    - target: {fileID: 622597041018045949, guid: 2ed9b3bdcbe7cb142b77c5455f47f1e3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6929584470713916768, guid: 2ed9b3bdcbe7cb142b77c5455f47f1e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
