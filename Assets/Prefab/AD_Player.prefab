@@ -4915,6 +4915,7 @@ GameObject:
   - component: {fileID: 827518341902889204}
   - component: {fileID: 622597041018045949}
   - component: {fileID: 1719996015}
+  - component: {fileID: 753928866203198573}
   m_Layer: 0
   m_Name: AD_Player
   m_TagString: Player
@@ -4931,7 +4932,7 @@ Transform:
   m_GameObject: {fileID: 6929584470713916771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1581512819383305584}
@@ -5060,8 +5061,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d58e128be0c54c96b7dbd52767a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentPrefab: {fileID: 4427374551034967839, guid: 6de972dcce5a7f649b89dcaabd3e772b, type: 3}
-  speed: 10
+  segmentPrefab: {fileID: 0}
+  speed: 20
   speedMultiplier: 1
   life: 3
   waterParticle: {fileID: 3573913378162459854}
+  lifetext: {fileID: 0}
+--- !u!114 &753928866203198573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929584470713916771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2badd7b4a291438c92ab876d1d1dac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
