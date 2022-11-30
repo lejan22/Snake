@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AD_PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class AD_PlayerController : MonoBehaviour
     public GameObject waterParticle;
     private GameObject turningPoint;
 
+    public TextMeshPro lifetext;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,8 @@ public class AD_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (_direction.x != 0f)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -150,8 +155,5 @@ public class AD_PlayerController : MonoBehaviour
         }
 
     }
-    private void takeDamage(int d)
-    {
-
-    }
+    
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e414d4291bc8588439427592a08a8606
+guid: 4c36f4c4a4635434987e4bfd44de3e70
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,18 +101,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,14 +113,14 @@ TextureImporter:
         width: 555
         height: 835
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18c028dee09a968448cc1b7a9a0a8c9f
-      internalID: 1669055470
+      spriteID: 432d4ce1560ae466d84f3fb310fdc0d3
+      internalID: -703954495
       vertices: []
       indices: 
       edges: []
@@ -146,14 +134,14 @@ TextureImporter:
         width: 556
         height: 835
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c33e7f00a141524e8edb02c25f2d8b0
-      internalID: -1581092413
+      spriteID: 42d75d7c365584db185c57d959c82762
+      internalID: -1371243689
       vertices: []
       indices: 
       edges: []
@@ -162,19 +150,19 @@ TextureImporter:
       name: AD_LosingSprite_2
       rect:
         serializedVersion: 2
-        x: 198
+        x: 196
         y: 1
-        width: 555
+        width: 557
         height: 833
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8521a1dbd1ec79e458fa2e6a270454fe
-      internalID: 88461990
+      spriteID: 76f2dff55ad5542c7a02b1563f7c2009
+      internalID: -2123651106
       vertices: []
       indices: 
       edges: []
@@ -188,14 +176,14 @@ TextureImporter:
         width: 556
         height: 835
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55deec43936e7f64e9b3dbeff9c1e744
-      internalID: -1477749823
+      spriteID: e70fb50bd7072484eb611d51cae2c5e4
+      internalID: 1301154497
       vertices: []
       indices: 
       edges: []
@@ -211,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AD_LosingSprite_0: 1669055470
-      AD_LosingSprite_1: -1581092413
-      AD_LosingSprite_2: 88461990
-      AD_LosingSprite_3: -1477749823
+      AD_LosingSprite_0: -703954495
+      AD_LosingSprite_1: -1371243689
+      AD_LosingSprite_2: -2123651106
+      AD_LosingSprite_3: 1301154497
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
