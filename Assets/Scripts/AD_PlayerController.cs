@@ -15,13 +15,24 @@ public class AD_PlayerController : MonoBehaviour
     public float speedMultiplier = 1f;
 
     public int life = 3;
+    private int score;
 
     private Animator _animator;
     private bool isMoving;
     public GameObject waterParticle;
     private GameObject turningPoint;
 
-    public TextMeshPro lifetext;
+    public TextMeshProUGUI lifetext;
+    public TextMeshProUGUI scoreText;
+   
+    //Blinking when we get hit
+    private bool isBlinking;
+    [SerializeField] private float blinkingDuration;
+    private float blinkingCounter;
+    private SpriteRenderer _characterRenderer;
+
+    private AD_IconDamage _IconDamage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +41,9 @@ public class AD_PlayerController : MonoBehaviour
         _segments = new List<Transform>();
         _segments.Add(this.transform);
         turningPoint = transform.Find("AD_turningPoint").gameObject;
+        _characterRenderer = GetComponent<SpriteRenderer>();
+
+        _IconDamage = GetComponent<AD_IconDamage>();
     }
 
     private void Awake()
@@ -39,7 +53,8 @@ public class AD_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        lifetext.text = life.ToString();
+        scoreText.text = score.ToString();
 
         if (_direction.x != 0f)
         {
@@ -47,10 +62,10 @@ public class AD_PlayerController : MonoBehaviour
             {
                 if (waterParticle != null && turningPoint != null)
                 {
-                    Instantiate(waterParticle, turningPoint.transform.position,
-                     turningPoint.transform.rotation);
+                    Destroy(Instantiate(waterParticle, turningPoint.transform.position,
+                     turningPoint.transform.rotation), 1.5f);
                 }
-                
+
                 isMoving = true;
                 input = Vector2.up;
                 _animator.Play("AD_Boa_up");
@@ -59,10 +74,10 @@ public class AD_PlayerController : MonoBehaviour
             {
                 if (waterParticle != null && turningPoint != null)
                 {
-                    Instantiate(waterParticle, turningPoint.transform.position,
-                     turningPoint.transform.rotation);
+                    Destroy(Instantiate(waterParticle, turningPoint.transform.position,
+                      turningPoint.transform.rotation), 1.5f);
                 }
-                
+
                 isMoving = true;
                 input = Vector2.down;
                 _animator.Play("AD_Boa_down");
@@ -75,10 +90,10 @@ public class AD_PlayerController : MonoBehaviour
             {
                 if (waterParticle != null && turningPoint != null)
                 {
-                    Instantiate(waterParticle, turningPoint.transform.position,
-                     turningPoint.transform.rotation);
+                    Destroy(Instantiate(waterParticle, turningPoint.transform.position,
+                     turningPoint.transform.rotation), 1.5f);
                 }
-                
+
                 isMoving = true;
                 input = Vector2.right;
                 _animator.Play("AD_Boa_right");
@@ -87,14 +102,51 @@ public class AD_PlayerController : MonoBehaviour
             {
                 if (waterParticle != null && turningPoint != null)
                 {
-                    Instantiate(waterParticle, turningPoint.transform.position,
-                     turningPoint.transform.rotation);
+                    Destroy(Instantiate(waterParticle, turningPoint.transform.position,
+                      turningPoint.transform.rotation), 1.5f);
                 }
-                
+
                 isMoving = true;
                 input = Vector2.left;
                 _animator.Play("AD_Boa_left");
             }
+        }
+
+        if (isBlinking)
+        {
+            blinkingCounter -= Time.deltaTime;
+            if (blinkingCounter > blinkingDuration * 0.8)
+            {
+                ToggleColor(false);
+            }
+            else if (blinkingCounter > blinkingDuration * 0.6)
+            {
+                ToggleColor(true);
+            }
+            else if (blinkingCounter > blinkingDuration * 0.4)
+            {
+                ToggleColor(false);
+            }
+            else if (blinkingCounter > blinkingDuration * 0.2)
+            {
+                ToggleColor(true);
+            }
+            else if (blinkingCounter > 0)
+            {
+                ToggleColor(false);
+            }
+            else
+            {
+                ToggleColor(true);
+                isBlinking = false;
+            }
+
+        }
+        if (life == 0)
+        {
+            ResetGame();
+            life = 3;
+            score = 0;
         }
     }
 
@@ -123,6 +175,8 @@ public class AD_PlayerController : MonoBehaviour
         segment.position = _segments[_segments.Count - 1].position;
 
         _segments.Add(segment);
+
+        score++;
     }
     private void ResetGame()
     {
@@ -144,16 +198,29 @@ public class AD_PlayerController : MonoBehaviour
         }
         else if (other.tag == "Ouch")
         {
-            life--;
-
-           if (life == 0)
-            {
-                ResetGame();
-                life = 3;
-            }
+            Gethurt();
+            
            
         }
 
     }
-    
+    private void ToggleColor(bool isVisible)
+    {
+        Color color = _characterRenderer.color;
+        color = new Color(color.r, color.g, color.b,
+         isVisible ? 1 : 0);
+        _characterRenderer.color = color;
+    }
+
+
+    public void Gethurt()
+    {
+        life--;
+        if (blinkingDuration > 0)
+        {
+            isBlinking = true;
+            blinkingCounter = blinkingDuration;
+        }
+        _IconDamage.Animate();
+    }
 }
