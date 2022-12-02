@@ -22,6 +22,6 @@ public class AD_IconDamage : MonoBehaviour
 
     public void Animate()
     {
-        _animator.Play("AD_IconDamage");
+        _animator.SetBool("Ouched",true);
     }
 }

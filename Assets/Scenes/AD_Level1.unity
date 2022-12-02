@@ -1655,18 +1655,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AD_Life
       objectReference: {fileID: 0}
-    - target: {fileID: 3422481269972989767, guid: 8f21df3021ae0c34b849399d2b955978, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3422481269972989767, guid: 8f21df3021ae0c34b849399d2b955978, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3422481269972989767, guid: 8f21df3021ae0c34b849399d2b955978, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f21df3021ae0c34b849399d2b955978, type: 3}
 --- !u!1001 &6929584470829700875

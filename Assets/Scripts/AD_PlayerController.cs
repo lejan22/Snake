@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class AD_PlayerController : MonoBehaviour
 {
@@ -38,9 +40,15 @@ public class AD_PlayerController : MonoBehaviour
     void Start()
     {
         life = 3;
+
+        score = 0;
+
         _segments = new List<Transform>();
+
         _segments.Add(this.transform);
+
         turningPoint = transform.Find("AD_turningPoint").gameObject;
+
         _characterRenderer = GetComponent<SpriteRenderer>();
 
         _IconDamage = GetComponent<AD_IconDamage>();
@@ -79,7 +87,9 @@ public class AD_PlayerController : MonoBehaviour
                 }
 
                 isMoving = true;
+
                 input = Vector2.down;
+
                 _animator.Play("AD_Boa_down");
             }
         }
@@ -144,9 +154,10 @@ public class AD_PlayerController : MonoBehaviour
         }
         if (life == 0)
         {
-            ResetGame();
-            life = 3;
-            score = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+           // ResetGame();
+            //life = 3;
+            //score = 0;
         }
     }
 
@@ -168,7 +179,7 @@ public class AD_PlayerController : MonoBehaviour
 
     }
 
-    private void extend()
+    public void extend()
     {
         Transform segment = Instantiate(this.segmentPrefab);
 
@@ -178,6 +189,7 @@ public class AD_PlayerController : MonoBehaviour
 
         score++;
     }
+
     private void ResetGame()
     {
         for (int i = 1; i < _segments.Count; i++)
@@ -215,7 +227,9 @@ public class AD_PlayerController : MonoBehaviour
 
     public void Gethurt()
     {
+       
         life--;
+       
         if (blinkingDuration > 0)
         {
             isBlinking = true;
