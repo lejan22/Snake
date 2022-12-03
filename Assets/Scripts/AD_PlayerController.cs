@@ -10,10 +10,12 @@ public class AD_PlayerController : MonoBehaviour
     private Vector2 _direction = Vector2.right;
     private List<Transform> _segments;//A list that takes care of how long the snake will get once you eat fruit
     private Vector2 input; //To prevent the snake from going back
+
     private float nextUpdate;
 
+
     public Transform segmentPrefab;
-    public float speed = 10f;
+    public float speed = 15f;
     public float speedMultiplier = 1f;
 
     public int life = 3;
@@ -43,6 +45,8 @@ public class AD_PlayerController : MonoBehaviour
 
         score = 0;
 
+        speedMultiplier = 2f;
+
         _segments = new List<Transform>();
 
         _segments.Add(this.transform);
@@ -58,6 +62,7 @@ public class AD_PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -164,18 +169,33 @@ public class AD_PlayerController : MonoBehaviour
     //MathF makes all the numbers whole, without decimals
     private void FixedUpdate()
     {
+        // Set the new direction based on the input
         if (input != Vector2.zero)
         {
             _direction = input;
         }
 
+        if (Time.time < nextUpdate)
+        {
+           return;
+        }
+
+        // Set each segment's position to be the same as the one it follows. We
+        // must do this in reverse order so the position is set to the previous
+        // position, otherwise they will all be stacked on top of each other.
         for (int i = _segments.Count - 1; i > 0; i--)
         {
             _segments[i].position = _segments[i - 1].position;
         }
-        this.transform.position = new Vector3(Mathf.Round(this.transform.position.x)
-            + _direction.x, Mathf.Round(this.transform.position.y) + _direction.y, 0.0f);
 
+        // Move the snake in the direction it is facing
+        // Round the values to ensure it aligns to the grid
+        float x = Mathf.Round(transform.position.x) + _direction.x;
+        float y = Mathf.Round(transform.position.y) + _direction.y;
+
+        transform.position = new Vector2(x, y);
+
+        nextUpdate = Time.time + (1f / (speed * speedMultiplier));
 
     }
 
@@ -188,6 +208,8 @@ public class AD_PlayerController : MonoBehaviour
         _segments.Add(segment);
 
         score++;
+
+        speedMultiplier++;
     }
 
     private void ResetGame()

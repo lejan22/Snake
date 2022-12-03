@@ -5063,12 +5063,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmentPrefab: {fileID: 4427374551034967839, guid: 6de972dcce5a7f649b89dcaabd3e772b, type: 3}
   speed: 20
-  speedMultiplier: 1
+  speedMultiplier: 2
   life: 3
   waterParticle: {fileID: 3573913378162459854}
   lifetext: {fileID: 0}
   scoreText: {fileID: 0}
-  blinkingDuration: 0
+  blinkingDuration: 2
 --- !u!114 &753928866203198573
 MonoBehaviour:
   m_ObjectHideFlags: 0
