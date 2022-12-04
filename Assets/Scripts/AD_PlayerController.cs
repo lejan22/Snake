@@ -37,6 +37,10 @@ public class AD_PlayerController : MonoBehaviour
 
     private AD_IconDamage _IconDamage;
 
+    private AudioSource playerAudioSource;
+    public AudioClip colisionsfx;
+    public AudioClip itemCollectsfx;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +59,11 @@ public class AD_PlayerController : MonoBehaviour
 
         _characterRenderer = GetComponent<SpriteRenderer>();
 
+        playerAudioSource = GetComponent<AudioSource>();
+
         _IconDamage = GetComponent<AD_IconDamage>();
+
+        
     }
 
     private void Awake()
@@ -210,6 +218,7 @@ public class AD_PlayerController : MonoBehaviour
         score++;
 
         speedMultiplier++;
+        playerAudioSource.PlayOneShot(itemCollectsfx, 1);
     }
 
     private void ResetGame()
@@ -251,7 +260,7 @@ public class AD_PlayerController : MonoBehaviour
     {
        
         life--;
-       
+        playerAudioSource.PlayOneShot(colisionsfx, 1);
         if (blinkingDuration > 0)
         {
             isBlinking = true;
