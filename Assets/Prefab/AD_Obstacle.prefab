@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7216291448258109068}
   - component: {fileID: 8070416270028163720}
-  - component: {fileID: 8913596823269277073}
+  - component: {fileID: 5314967720444721300}
+  - component: {fileID: -358877477201424973}
   m_Layer: 0
   m_Name: AD_Obstacle
   m_TagString: Ouch
@@ -85,7 +86,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8913596823269277073
+--- !u!61 &5314967720444721300
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989411009638888637}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.033631325, y: -0.6950575}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.614396, y: 6.278077}
+  m_EdgeRadius: 0
+--- !u!114 &-358877477201424973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3989411009638888637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4832ebb93ee7a4d318af7a2f7af62232, type: 3}
+  m_Script: {fileID: 11500000, guid: 7236812514073de48a58c71be1fee92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {fileID: 0}
-  bomb: {fileID: 0}
+  lifeTime: 3

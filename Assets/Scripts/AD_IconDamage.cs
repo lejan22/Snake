@@ -11,7 +11,7 @@ public class AD_IconDamage : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
-       
+        Debug.Log(_animator);
     }
 
     // Update is called once per frame

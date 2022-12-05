@@ -15,7 +15,7 @@ public class AD_PlayerController : MonoBehaviour
 
 
     public Transform segmentPrefab;
-    public float speed = 15f;
+    public float speed = 20f;
     public float speedMultiplier = 1f;
 
     public int life = 3;
@@ -36,6 +36,8 @@ public class AD_PlayerController : MonoBehaviour
     private SpriteRenderer _characterRenderer;
 
     private AD_IconDamage _IconDamage;
+    private AD_Bomb _Bomb;
+    private AD_DataPersistance _dataPersistance;
 
     private AudioSource playerAudioSource;
     public AudioClip colisionsfx;
@@ -45,11 +47,11 @@ public class AD_PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        life = 3;
+        life = 5;
 
         score = 0;
 
-        speedMultiplier = 2f;
+        speedMultiplier = 1f;
 
         _segments = new List<Transform>();
 
@@ -61,9 +63,10 @@ public class AD_PlayerController : MonoBehaviour
 
         playerAudioSource = GetComponent<AudioSource>();
 
-        _IconDamage = GetComponent<AD_IconDamage>();
+        _IconDamage = FindObjectOfType<AD_IconDamage>();
 
-        
+        _Bomb = FindObjectOfType<AD_Bomb>();
+        _dataPersistance = FindObjectOfType<AD_DataPersistance>();
     }
 
     private void Awake()
@@ -163,20 +166,9 @@ public class AD_PlayerController : MonoBehaviour
                 ToggleColor(true);
                 isBlinking = false;
             }
+           
 
         }
-        if (life == 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-           // ResetGame();
-            //life = 3;
-            //score = 0;
-        }
-    }
-
-    //MathF makes all the numbers whole, without decimals
-    private void FixedUpdate()
-    {
         // Set the new direction based on the input
         if (input != Vector2.zero)
         {
@@ -185,7 +177,7 @@ public class AD_PlayerController : MonoBehaviour
 
         if (Time.time < nextUpdate)
         {
-           return;
+            return;
         }
 
         // Set each segment's position to be the same as the one it follows. We
@@ -204,8 +196,17 @@ public class AD_PlayerController : MonoBehaviour
         transform.position = new Vector2(x, y);
 
         nextUpdate = Time.time + (1f / (speed * speedMultiplier));
+        //GAME OVER
+        if (life <= 0)
+        {
+            PlayerPrefs.SetInt("score",score);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+        }
     }
+
+    //MathF makes all the numbers whole, without decimals
+   
 
     public void extend()
     {
@@ -217,7 +218,7 @@ public class AD_PlayerController : MonoBehaviour
 
         score++;
 
-        speedMultiplier++;
+        speed += 0.5f;
         playerAudioSource.PlayOneShot(itemCollectsfx, 1);
     }
 
@@ -238,11 +239,17 @@ public class AD_PlayerController : MonoBehaviour
         if (other.tag == "Tube")
         {
             extend();
+
+            _Bomb.RandomPosition();
+
+
         }
         else if (other.tag == "Ouch")
         {
             Gethurt();
-            
+
+            speed -= 2 ;
+           
            
         }
 
@@ -260,7 +267,7 @@ public class AD_PlayerController : MonoBehaviour
     {
        
         life--;
-        playerAudioSource.PlayOneShot(colisionsfx, 1);
+        playerAudioSource.PlayOneShot(colisionsfx, 2);
         if (blinkingDuration > 0)
         {
             isBlinking = true;
