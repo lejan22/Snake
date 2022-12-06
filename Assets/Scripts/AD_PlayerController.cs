@@ -47,8 +47,10 @@ public class AD_PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //We start with 5 life points
         life = 5;
 
+        //Reset the score
         score = 0;
 
         speedMultiplier = 1f;
@@ -59,16 +61,19 @@ public class AD_PlayerController : MonoBehaviour
 
         turningPoint = transform.Find("AD_turningPoint").gameObject;
 
+        //We get the sprite renderer for the blinking
         _characterRenderer = GetComponent<SpriteRenderer>();
-
+        //We get the audiosource
         playerAudioSource = GetComponent<AudioSource>();
-
+        //We get the icon from the UI
         _IconDamage = FindObjectOfType<AD_IconDamage>();
-
+        //We get the bomb component
         _Bomb = FindObjectOfType<AD_Bomb>();
+        //We get datapersistance
         _dataPersistance = FindObjectOfType<AD_DataPersistance>();
     }
 
+    //We get the animator component
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -80,10 +85,13 @@ public class AD_PlayerController : MonoBehaviour
         lifetext.text = life.ToString();
         scoreText.text = score.ToString();
 
+
         if (_direction.x != 0f)
         {
+            //if we press up or W, the direction our character will go is up
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
+                
                 if (waterParticle != null && turningPoint != null)
                 {
                     Destroy(Instantiate(waterParticle, turningPoint.transform.position,
@@ -92,6 +100,7 @@ public class AD_PlayerController : MonoBehaviour
 
                 isMoving = true;
                 input = Vector2.up;
+                //We play the animation for going up
                 _animator.Play("AD_Boa_up");
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
@@ -105,10 +114,11 @@ public class AD_PlayerController : MonoBehaviour
                 isMoving = true;
 
                 input = Vector2.down;
-
+                //We play the animation for going down
                 _animator.Play("AD_Boa_down");
             }
         }
+
         // Only allow turning left or right while moving in the y-axis
         else if (_direction.y != 0f)
         {
@@ -137,7 +147,7 @@ public class AD_PlayerController : MonoBehaviour
                 _animator.Play("AD_Boa_left");
             }
         }
-
+        //Makes the blinking 
         if (isBlinking)
         {
             blinkingCounter -= Time.deltaTime;
@@ -190,6 +200,7 @@ public class AD_PlayerController : MonoBehaviour
 
         // Move the snake in the direction it is facing
         // Round the values to ensure it aligns to the grid
+        //MathF makes all the numbers whole, without decimals
         float x = Mathf.Round(transform.position.x) + _direction.x;
         float y = Mathf.Round(transform.position.y) + _direction.y;
 
@@ -199,15 +210,17 @@ public class AD_PlayerController : MonoBehaviour
         //GAME OVER
         if (life <= 0)
         {
+            //We save the score to display it at the game over screen 
             PlayerPrefs.SetInt("score",score);
+            //We go to the game over screen
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }
     }
 
-    //MathF makes all the numbers whole, without decimals
+    
    
-
+    //This function will make our snake grow once we collect the item required
     public void extend()
     {
         Transform segment = Instantiate(this.segmentPrefab);
@@ -216,9 +229,11 @@ public class AD_PlayerController : MonoBehaviour
 
         _segments.Add(segment);
 
+        //We add a point to the score
         score++;
-
+        //We make it go faster
         speed += 0.5f;
+        //Will make a sound effect everytime you collect one
         playerAudioSource.PlayOneShot(itemCollectsfx, 1);
     }
 
@@ -238,22 +253,29 @@ public class AD_PlayerController : MonoBehaviour
     {
         if (other.tag == "Tube")
         {
+            //When we collect the item we make the function extend
             extend();
 
+            //The obstacle will appear randomly around the stage
             _Bomb.RandomPosition();
 
 
         }
+
         else if (other.tag == "Ouch")
         {
+            //When we touch something we do the function get hurt
             Gethurt();
 
+            //We reduce the speed of the player to give time to react
             speed -= 2 ;
            
            
         }
 
     }
+
+    //Function used for make the character blink
     private void ToggleColor(bool isVisible)
     {
         Color color = _characterRenderer.color;
@@ -265,14 +287,17 @@ public class AD_PlayerController : MonoBehaviour
 
     public void Gethurt()
     {
-       
+       //We reduce one life point
         life--;
+        //We play the sfx
         playerAudioSource.PlayOneShot(colisionsfx, 2);
+        
         if (blinkingDuration > 0)
         {
             isBlinking = true;
             blinkingCounter = blinkingDuration;
         }
+        //We make the icon animate
         _IconDamage.Animate();
     }
 }

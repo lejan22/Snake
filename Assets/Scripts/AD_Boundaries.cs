@@ -8,6 +8,7 @@ public class AD_Boundaries : MonoBehaviour
     private float Ylim = 12.46f;
     private float Zlim = 1;
 
+    //When we reach a border we will appear on the other side of the map
     private void FixedUpdate()
     {
         if (transform.position.x > Xlim)

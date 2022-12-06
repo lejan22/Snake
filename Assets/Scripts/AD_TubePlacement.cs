@@ -8,14 +8,11 @@ public class AD_TubePlacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //At the beginning of the match we activate the random position
         RandomPosition();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //We make the icon spawn randomly inside the spawn area. This spawn area is an empty gameobject with a collider.
     private void RandomPosition()
     {
         Bounds bounds = this.spawnArea.bounds;
@@ -25,6 +22,8 @@ public class AD_TubePlacement : MonoBehaviour
 
         this.transform.position = new Vector3(Mathf.Round(x),Mathf.Round (y), 0.0f);
     }
+
+    //Once we touch the player, we appear randomly
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag== "Player")

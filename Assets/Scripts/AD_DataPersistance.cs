@@ -10,11 +10,7 @@ public class AD_DataPersistance : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public int GetInt(string key)
     {
         return PlayerPrefs.GetInt(key);

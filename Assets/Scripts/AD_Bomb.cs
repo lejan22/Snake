@@ -18,12 +18,7 @@ public class AD_Bomb : MonoBehaviour
         playercontroller = FindObjectOfType<AD_PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
+   //Spawns the bomb in a random position using the same bounds as the items to collect
     public void RandomPosition()
     {
         

@@ -10,16 +10,13 @@ public class AD_IconDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //We get the animator component
         _animator = GetComponent<Animator>();
-        Debug.Log(_animator);
+       
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
+    //Function that we will later  use to animate the life icon
     public void Animate()
     {
         _animator.Play("AD_IconDamage");
